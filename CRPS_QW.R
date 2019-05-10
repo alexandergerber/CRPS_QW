@@ -33,3 +33,8 @@ plot(w_r(alpha), type = "l")
 ## To emphasize the left tail
 w_l <- function(alpha) (1-alpha)^2
 plot(w_l(alpha), type = "l")
+
+# Directly source script
+#library(RCurl)
+#script <- getURL("https://raw.githubusercontent.com/alexandergerber/CRPS_QW/master/CRPS_QW.R", ssl.verifypeer = FALSE)
+#eval(parse(text = script))
