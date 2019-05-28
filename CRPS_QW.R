@@ -3,7 +3,7 @@ crps <- function(y, sim_dens){
   J <- length(sim_dens)
   alpha <-  seq.int(0.5 * 1/J, 1 - 0.5 * 1/J, length.out = length(sim_dens))
   x <- sort(sim_dens)
-  2 * mean(((y <  x) - alpha) * (x -  y))
+  2 * ((y <  x) - alpha) * (x -  y)
 }
 
 # Quantile weighted CRPS (T. Gneiting and R. Ranjan (2011):
@@ -13,7 +13,7 @@ crps_qw <- function(y, sim_dens, w){
   J <- length(sim_dens)
   alpha <-  seq.int(0.5 * 1/J, 1 - 0.5 * 1/J, length.out = length(sim_dens))
   x <- sort(sim_dens)
-   2 * mean(w(alpha) * ((y <  x) - alpha) * (x -  y))
+   2 * w(alpha) * ((y <  x) - alpha) * (x -  y)
 }
 
 # Weighting functions proposed by Gneiting and Ranjan 2011
